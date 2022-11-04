@@ -10,60 +10,132 @@
 
 #define DEFAULT_L 0
 #define SYMBOLS_L 1
-#define ARROWS_L  2
-#define NUMBERS_L 3
-
+#define NUMBERS_L 2
+#define ARROWS_L  3
 
 / {
-
-	behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+    macros {
+        co_left: co_left {
+            label = "Rectangle_co_left";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_press &kp LALT>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        co_right: co_right {
+            label = "Rectangle_co_right";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_press &kp LALT>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        co_up: co_up {
+            label = "Rectangle_co_up";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_press &kp LALT>
+                , <&macro_tap &kp UP>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        co_down: co_down {
+            label = "Rectangle_co_down";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_press &kp LALT>
+                , <&macro_tap &kp DOWN>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        co_ret: co_ret {
+            label = "Rectangle_co_ret";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_press &kp LALT>
+                , <&macro_tap &kp RET>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp LALT>
+                ;
         };
     };
+};
+
+/ {
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+// |  CMD |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+//                    |CTRL | ALT | RET |   | sym | SPC  | num |
                         bindings = <
-   &kp ESC   &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp EQUAL    &kp BSPC
-   &kp SQT   &kp A &kp R &kp S &hm LCMD T &kp G   &kp M &hm LCMD N  &kp E     &kp I   &kp O       &kp RET
-   &kp TAB &kp Z &kp X &kp C &kp D &kp V   &kp K &kp H  &kp COMMA &kp DOT   &kp SEMI   &kp FSLH 
-                  &kp LCMD &kp LSHFT &kp LCTRL   &to SYMBOLS_L &kp SPACE &to NUMBERS_L
+   &kp TAB   &kp Q &kp W &kp E &kp R &kp T       &kp Y &kp U     &kp I     &kp O   &kp P    &kp BACKSPACE
+   &kp LCMD  &kp A &kp S &kp D &kp F &kp G       &kp H &kp J     &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B       &kp N &kp M     &kp COMMA &kp DOT &kp FSLH &kp ESC
+                   &kp LCTRL &kp LALT &kp RET    &mo SYMBOLS_L &kp SPACE &mo NUMBERS_L
                         >;
                 };
 
-                symbols_layer {
+                symbol_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// |  CMD |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                    | CMD |     | RET |   |     | SPC |     |
                         bindings = <
-   &kp ESC    &kp EXCL       &kp AT       &kp HASH       &kp DLLR       &kp PRCNT         &kp CARET   &kp AMPS   &kp STAR &kp MINUS  &none &kp BSPC
-   &kp GRAVE &none &none &none &none &kp PLUS        &kp HOME &kp LBRC &kp RBRC &kp END &kp BSLH &kp RET
-   &kp TAB   &none &none &none &none &kp MINUS        &kp LBKT   &kp LPAR   &kp RPAR &kp RBKT &none &to ARROWS_L
-                     &kp LCMD &kp LSHFT &to DEFAULT_L     &none &kp SPACE  &to NUMBERS_L
+   &kp TAB   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BACKSPACE
+   &kp LCMD  &none    &none  &none    &none    &none       &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &kp LSHFT &none    &none  &none    &none    &none       &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+               	             &kp LCMD &none    &kp RET     &none     &kp SPACE &none
                         >;
                 };
 
-                arrows_layer {
+                number_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+// |  CMD |     |     |     |     |     |   | LFT | DWN |  UP | RGT |     |      |
+// | SHFT |     |     |     |     |     |   | R_L | R_D | R_U | R_R | R_! |      |  <--- These are meta-keys for use with Rectangle
+//                    |CTRL |     | RET |   | dfl | SPC |     |
                         bindings = <
-   &kp ESC  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR            &none &none &none &none &none &kp BSPC
-   &none &none   &kp C_PP &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_UP                     &kp LEFT &kp DOWN &kp UP  &kp RIGHT &none &kp RET
-   &kp TAB &none   &none   &kp C_PREV &kp C_NEXT &kp C_BRI_DN                         &none &none &none &none &none &none 
-                    	     &kp LCMD &kp LSHFT   &to DEFAULT_L                        &to SYMBOLS_L &kp SPACE    &to NUMBERS_L
+   &kp TAB    &kp N1   &kp N2   &kp N3     &kp N4   &kp N5         &kp N6   &kp N7    &kp N8 &kp N9    &kp N0   &kp BACKSPACE
+   &kp LCMD   &none    &none    &none      &none    &none          &kp LEFT &kp DOWN  &kp UP &kp RIGHT &none    &none
+   &kp LSHFT  &none    &none    &none      &none    &none          &co_left &co_down  &co_up &co_right &co_ret  &none
+                                &kp LCTRL  &none    &kp RET        &to DEFAULT_L &kp SPACE &none
                         >;
                 };
 
-                numbers_layer {
+                arrow_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |     |     |     |     |     |   |     |     |     |     |     | BKSP |
+// |      |     |     |     |     |     |   | LFT | DWN |  UP | RGT |     |      |
+// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+//                    | CMD |     | RET |   | dfl | SPC |     |
                         bindings = <
-   &kp ESC  &none &none &none &none &none                 &none &hm F7 N7      &hm F8 N8      &hm F9 N9 &none &kp BSPC
-   &none   &none &none   &none   &kp STAR &kp PLUS           &kp EQUAL &hm F4 N4      &hm F5 N5      &hm F6 N6 &kp DOT &kp RET
-   &kp TAB &none   &none   &none      &kp FSLH &kp MINUS       &hm F10 N0		&hm F1 N1      &hm F2 N2      &hm F3 N3 &kp COMMA &to ARROWS_L
-                    	     &kp LCMD &kp LSHFT   &to DEFAULT_L  &to SYMBOLS_L &kp SPACE    &none
-                        >;
+   &kp TAB   &none &none    &none        &none        &none           &none         &none        &none   &none     &none &kp BSPC
+   &none     &none &kp C_PP &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_UP    &kp LEFT      &kp DOWN     &kp UP  &kp RIGHT &none &none
+   &kp LSHFT &none &none    &kp C_PREV   &kp C_NEXT   &kp C_BRI_DN    &none         &none        &none   &none     &none &none
+                   	    &kp LCMD     &none        &kp RET         &to DEFAULT_L &kp SPACE    &none
                 };
+
         };
 };
