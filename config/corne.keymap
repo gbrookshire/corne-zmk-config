@@ -21,12 +21,12 @@
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // |  RET |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    |CTRL | ALT | CMD |   | sym | SPC  | num |
+//                    |CTRL | ALT | CMD |   | SPC | sym  | num |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R  &kp T       &kp Y &kp U     &kp I     &kp O   &kp P    &kp BACKSPACE
    &kp RET   &kp A &kp S &kp D &kp F  &kp G       &kp H &kp J     &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V  &kp B       &kp N &kp M     &kp COMMA &kp DOT &kp FSLH &kp ESC
-                   &kp LCTRL &kp LALT &kp LCMD    &mo SYMBOLS_L   &kp SPACE &mo NUMBERS_L
+                   &kp LCTRL &kp LALT &kp LCMD    &kp SPACE &mo SYMBOLS_L &mo NUMBERS_L
                         >;
                 };
 
@@ -35,12 +35,12 @@
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // |  RET |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    |CTRL | ALT | CMD |   |     | SPC |     |
+//                    |CTRL | ALT | CMD |   | SPC |     |     |
                         bindings = <
    &kp TAB   &kp EXCL &kp AT &kp HASH  &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BACKSPACE
    &kp RET   &none    &none  &none     &none    &none       &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
    &kp LSHFT &none    &none  &none     &none    &none       &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                             &kp LCTRL &kp LALT &kp LCMD    &none     &kp SPACE &none
+                             &kp LCTRL &kp LALT &kp LCMD    &kp SPACE &none     &none
                         >;
                 };
 
@@ -49,12 +49,12 @@
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // |  RET |     |     |     |     |     |   | LFT | DWN |  UP | RGT |     |      |
 // | SHFT |     |     |     |     |     |   |     |     |  ,  |  .  |     |      |
-//                    |CTRL | ALT | CMD |   |     | SPC |     |
+//                    |CTRL | ALT | CMD |   | SPC |     |     |
                         bindings = <
-   &kp TAB    &kp N1   &kp N2   &kp N3     &kp N4   &kp N5         &kp N6   &kp N7    &kp N8    &kp N9    &kp N0   &kp BACKSPACE
-   &kp RET    &none    &none    &none      &none    &none          &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none    &none
-   &kp LSHFT  &none    &none    &none      &none    &none          &none    &none     &kp COMMA &kp DOT   &none    &none
-                                &kp LCTRL  &kp LALT &kp LCMD       &none    &kp SPACE &none
+   &kp TAB    &kp N1   &kp N2   &kp N3     &kp N4   &kp N5         &kp N6    &kp N7    &kp N8    &kp N9    &kp N0   &kp BACKSPACE
+   &kp RET    &none    &none    &none      &none    &none          &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &none    &none
+   &kp LSHFT  &none    &none    &none      &none    &none          &none     &none     &kp COMMA &kp DOT   &none    &none
+                                &kp LCTRL  &kp LALT &kp LCMD       &kp SPACE &none     &none
                         >;
                 };
         };
