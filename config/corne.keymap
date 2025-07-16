@@ -24,7 +24,8 @@
 //                    |CTRL | ALT | CMD |   | SPC | sym  | num |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R  &kp T       &kp Y &kp U     &kp I     &kp O   &kp P    &kp BACKSPACE
-   &kp RET   &kp A &kp S &kp D &kp F  &kp G       &kp H &kp J     &kp K     &kp L   &kp SEMI &kp SQT
+   &bt BT_CLR   &kp A &kp S &kp D &kp F  &kp G       &kp H &kp J     &kp K     &kp L   &kp SEMI &kp SQT
+   // THIS SHOULD BE A TEMPORARY FIX -- REVERT THIS CHANGE IF IT WORKS
    &kp LSHFT &kp Z &kp X &kp C &kp V  &kp B       &kp N &kp M     &kp COMMA &kp DOT &kp FSLH &kp ESC
                    &kp LCTRL &kp LALT &kp LCMD    &kp SPACE &mo SYMBOLS_L &mo NUMBERS_L
                         >;
