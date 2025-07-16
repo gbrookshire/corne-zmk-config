@@ -34,12 +34,14 @@
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // |  RET |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+// | SHFT |     | [1] |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    |CTRL | ALT | CMD |   | SPC |     |     |
+// 
+// [1] Reset the Bluetooth profile
                         bindings = <
    &kp TAB   &kp EXCL &kp AT &kp HASH  &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BACKSPACE
    &kp RET   &none    &none  &none     &none    &none       &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &none    &none  &none     &none    &none       &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+   &kp LSHFT &none    &bt BT_CLR  &none     &none    &none       &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
                              &kp LCTRL &kp LALT &kp LCMD    &kp SPACE &none     &none
                         >;
                 };
